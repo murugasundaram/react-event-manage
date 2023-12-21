@@ -55,11 +55,64 @@
   text-align: center;
 }
 
+.bottom-80 {
+  bottom: 80px;
+}
+
 .body-container {
   background-color: #edf2fc;
   min-height: 750px;
   border-radius: 30px 30px 0px 0px;
   margin-bottom: 70px;
+}
+
+.chat-container {
+  background-color: #edf2fc;
+  margin-top: 55px;
+  height: 90vh;
+}
+
+.chat-head {
+  margin-bottom: 2px;
+}
+
+.chat-head span {
+  color: #f7e43a;
+  border-radius: 5px;
+  font-size: 9px;
+}
+
+.chat-box {
+  height: calc(100vh - 210px);
+  padding-top: 20px;
+  overflow-y: auto;
+}
+
+.chat-bubble {
+  max-width: 75%;
+  margin-bottom: 10px;
+  border-radius: 10px 3px 15px 10px;
+  padding: 5px 10px;
+  font-size: 13px;
+  box-shadow: 0px 0px 3px 0px #2f47cf8a;
+}
+
+.chat-bubble.right {
+  float: right;
+  background-color: white;
+  color: black;
+}
+
+.chat-bubble.left {
+  float: left;
+  background-color: #00074dbf;
+  color: white;
+}
+
+.chat-date {
+  font-size: 10px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .page-header {

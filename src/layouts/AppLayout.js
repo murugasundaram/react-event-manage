@@ -24,13 +24,13 @@ const AppLayout = (props) => {
     const fetchAuth = () => {
         let isLoggedIn = localStorage.getItem('isLoggedIn')
         let isAdmin = localStorage.getItem('isAdmin')
-
-        console.log(isLoggedIn, isAdmin)
+        let uname = localStorage.getItem('uname')
 
         if(isLoggedIn) {
             dispatch(authAction.login({
                 isAdmin: isAdmin,
-                isLoggedIn: isLoggedIn
+                isLoggedIn: isLoggedIn,
+                uname: uname
             }));
         } else {
             navigate('/login')
@@ -43,24 +43,29 @@ const AppLayout = (props) => {
     if(props.page === 'event') pageHeader = "Event";
     if(props.page === 'friend') pageHeader = "Friends";
     if(props.page === 'new') pageHeader = "Manage Events";
-
+    if(props.page === 'chat') pageHeader = "Notes";
 
     return <div className="">
         <Header />
         
         <main className="flex-shrink-0">
-            <div className="container">
-                <div className="main-container">
-                    <h2 className="page-header">{pageHeader}</h2>
-                </div>
-            </div>
-            <div className="body-container">
-                <div className="pt-4">
-                    <div className="container">
-                    {props.children}
+            {props.page !== 'chat' && <>
+                <div className="container">
+                    <div className="main-container">
+                        <h2 className="page-header">{pageHeader}</h2>
                     </div>
                 </div>
-            </div>
+                <div className="body-container">
+                    <div className="pt-4">
+                        <div className="container">
+                        {props.children}
+                        </div>
+                    </div>
+                </div>
+            </>}
+            {props.page === 'chat' && <div className="chat-container">
+                {props.children}
+            </div>}
         </main>
 
         <Footer page={props.page} />

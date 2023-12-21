@@ -49,10 +49,12 @@ const LoginForm = () => {
 
         localStorage.setItem('isLoggedIn', true)
         localStorage.setItem('isAdmin', isAdmin)
+        localStorage.setItem('uname', uname)
 
         dispatch(authAction.login({
             isAdmin: isAdmin,
-            isLoggedIn: true
+            isLoggedIn: true,
+            uname: uname
         }));
 
         navigate('/home')

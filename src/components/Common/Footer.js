@@ -23,6 +23,9 @@ const Footer = (props) => {
                 <div className="col text-center" onClick={() => changeMenu('/new')}>
                     <i className={`fa fas fa-plus ${props.page === 'new' ? 'selected-menu' : ''}`} ></i>
                 </div>
+                <div className="col text-center" onClick={() => changeMenu('/chat')}>
+                    <i className={`fa fas fa-comment  ${props.page === 'chat' ? 'selected-menu' : ''}`} ></i>
+                </div>
             </div>
         </div>
     </footer>

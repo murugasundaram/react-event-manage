@@ -12,6 +12,7 @@ const Header = () => {
     const logOut = () => {
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('isAdmin');
+        localStorage.removeItem('uname');
         dispatch(authAction.logout())
         navigate('/login')
     }

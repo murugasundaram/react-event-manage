@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import User from './pages/User';
 import Event from './pages/Event';
 import New from './pages/New';
+import Chat from './pages/Chat';
 
 import './App.css';
 
@@ -18,6 +19,7 @@ function App() {
     <Route path='/event' element={<Event />} />
     <Route path='/friend' element={<User />} />
     <Route path='/new' element={<New />} />
+    <Route path='/chat' element={<Chat />} />
   </Routes>
 }
 
