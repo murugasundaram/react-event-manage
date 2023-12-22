@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 import {  useNavigate } from "react-router-dom";
 
 const Footer = (props) => {
 
     const navigate = useNavigate();
+    const hasNewMsg = useSelector(state => state.chat.hasNewMsg)
 
     const changeMenu = (menu) => {
         navigate(menu)
@@ -24,7 +26,10 @@ const Footer = (props) => {
                     <i className={`fa fas fa-plus ${props.page === 'new' ? 'selected-menu' : ''}`} ></i>
                 </div>
                 <div className="col text-center" onClick={() => changeMenu('/chat')}>
-                    <i className={`fa fas fa-comment  ${props.page === 'chat' ? 'selected-menu' : ''}`} ></i>
+                    <i className={`fa fas fa-comment  ${props.page === 'chat' ? 'selected-menu' : ''}`} >
+                    {hasNewMsg && <span className="position-absolute translate-middle bg-danger border border-light rounded-circle" style={{ padding: '5px'}}>
+                    </span>}
+                    </i>
                 </div>
             </div>
         </div>

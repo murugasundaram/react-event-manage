@@ -2,13 +2,17 @@
 import { useSelector } from "react-redux";
 import ChatLine from "./ChatLine";
 import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { chatAction } from "../../stores/chat.store";
 
 const ChatBox = () => {
     const allChat = useSelector(state => state.chat.allChat);
     const divRef = useRef();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         scrollToBottom();
+        dispatch(chatAction.readMsg());
     }, [allChat]);
     
     const scrollToBottom = () => {

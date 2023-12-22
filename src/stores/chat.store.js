@@ -31,6 +31,7 @@ const chatSlice = createSlice({
     name : 'chat',
     initialState: {
         allChat : [],
+        hasNewMsg: false,
         isLoading: true,
         isFetched: false
     },
@@ -39,8 +40,11 @@ const chatSlice = createSlice({
             state.allChat = action.payload.allChat
         },
         updateChat(state, action) {
-            console.log(action.payload)
-            state.allChat.push(action.payload)
+            state.hasNewMsg = true
+            state.allChat.push(action.payload.newChat)
+        },
+        readMsg(state) {
+            state.hasNewMsg = false
         }
     },
     extraReducers: (builder) => {

@@ -21,8 +21,8 @@ const AppLayout = (props) => {
 
     useEffect(() => {
         if(!chatFetched) dispatch(fetchChats());
-        if(!checkEventFetched) dispatch(fetchEvents());
-        if(!checkFrndFetched) dispatch(fetchFrnds());
+        //if(!checkEventFetched) dispatch(fetchEvents());
+        //if(!checkFrndFetched) dispatch(fetchFrnds());
         if(!authFetched) fetchAuth();
     }, [])
 
@@ -33,10 +33,11 @@ const AppLayout = (props) => {
         });
 
         const channel = pusher.subscribe('events');
+
         channel.bind('new-chat', (data) => {
             // Handle the new event data, e.g., update state
             console.log('New Chat:', data.data);
-            dispatch(chatAction.updateChat(data.data));
+            dispatch(chatAction.updateChat({ newChat: data.data }));
         });
 
         return () => {
