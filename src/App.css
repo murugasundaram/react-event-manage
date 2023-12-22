@@ -97,6 +97,10 @@
   box-shadow: 0px 0px 3px 0px #2f47cf8a;
 }
 
+.center-div-loader {
+  padding: 35vh 30%;
+}
+
 .chat-bubble.right {
   float: right;
   background-color: white;

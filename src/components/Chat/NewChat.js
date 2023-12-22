@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { chatAction } from "../../stores/chat.store";
 import { useDispatch } from "react-redux";
+import { addChats } from "../../stores/chat.store";
 
 const capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
@@ -28,7 +29,8 @@ const NewChat = () => {
             date
         }
 
-        dispatch(chatAction.updateChat(newMsg));
+        dispatch(addChats(newMsg));
+        //dispatch(chatAction.updateChat(newMsg));
         setMsg("")
     }
 
